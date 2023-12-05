@@ -32,7 +32,7 @@
 <ul class="tsd-hierarchy">
 <li><a href="../classes/_internal_.Crypto.html" class="tsd-signature-type tsd-kind-class">Crypto</a></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L31">src/common-crypto/CryptoBackend.ts:31</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L31">src/common-crypto/CryptoBackend.ts:31</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -51,6 +51,7 @@
 <a href="_internal_.CryptoBackend.html#checkOwnCrossSigningTrust" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>check<wbr/>Own<wbr/>Cross<wbr/>Signing<wbr/>Trust</span></a>
 <a href="_internal_.CryptoBackend.html#checkUserTrust" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>check<wbr/>User<wbr/>Trust</span></a>
 <a href="_internal_.CryptoBackend.html#createRecoveryKeyFromPassphrase" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>create<wbr/>Recovery<wbr/>Key<wbr/>From<wbr/>Passphrase</span></a>
+<a href="_internal_.CryptoBackend.html#crossSignDevice" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>cross<wbr/>Sign<wbr/>Device</span></a>
 <a href="_internal_.CryptoBackend.html#decryptEvent" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>decrypt<wbr/>Event</span></a>
 <a href="_internal_.CryptoBackend.html#deleteKeyBackupVersion" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete<wbr/>Key<wbr/>Backup<wbr/>Version</span></a>
 <a href="_internal_.CryptoBackend.html#encryptEvent" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>encrypt<wbr/>Event</span></a>
@@ -64,6 +65,7 @@
 <a href="_internal_.CryptoBackend.html#getDeviceVerificationStatus" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Device<wbr/>Verification<wbr/>Status</span></a>
 <a href="_internal_.CryptoBackend.html#getEncryptionInfoForEvent" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Encryption<wbr/>Info<wbr/>For<wbr/>Event</span></a>
 <a href="_internal_.CryptoBackend.html#getEventEncryptionInfo" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Event<wbr/>Encryption<wbr/>Info</span></a>
+<a href="_internal_.CryptoBackend.html#getOwnDeviceKeys" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Own<wbr/>Device<wbr/>Keys</span></a>
 <a href="_internal_.CryptoBackend.html#getSessionBackupPrivateKey" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span></a>
 <a href="_internal_.CryptoBackend.html#getStoredCrossSigningForUser" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Stored<wbr/>Cross<wbr/>Signing<wbr/>For<wbr/>User</span></a>
 <a href="_internal_.CryptoBackend.html#getTrustCrossSignedDevices" class="tsd-index-link tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Trust<wbr/>Cross<wbr/>Signed<wbr/>Devices</span></a>
@@ -104,7 +106,7 @@ do not specify a value.</p>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#globalBlacklistUnverifiedDevices">globalBlacklistUnverifiedDevices</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L40">src/crypto-api.ts:40</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L40">src/crypto-api.ts:40</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="globalErrorOnUnknownDevices" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>global<wbr/>Error<wbr/>On<wbr/>Unknown<wbr/>Devices</span><a href="#globalErrorOnUnknownDevices" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">global<wbr/>Error<wbr/>On<wbr/>Unknown<wbr/>Devices</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
@@ -118,13 +120,13 @@ no room-level equivalent for this setting.</p>
 the accessors in MatrixClient.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L41">src/common-crypto/CryptoBackend.ts:41</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L41">src/common-crypto/CryptoBackend.ts:41</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="bootstrapCrossSigning" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>bootstrap<wbr/>Cross<wbr/>Signing</span><a href="#bootstrapCrossSigning" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="bootstrapCrossSigning.bootstrapCrossSigning-1"><span class="tsd-kind-call-signature">bootstrap<wbr/>Cross<wbr/>Signing</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">opts</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#bootstrapCrossSigning.bootstrapCrossSigning-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="bootstrapCrossSigning.bootstrapCrossSigning-1"><span class="tsd-kind-call-signature">bootstrap<wbr/>Cross<wbr/>Signing</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">opts</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#bootstrapCrossSigning.bootstrapCrossSigning-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Bootstrap cross-signing by creating keys if needed.</p>
 <p>If everything is already set up, then no changes are made, so this is safe to run to ensure
@@ -145,15 +147,15 @@ secret storage (if it has been set up)</li>
 <div class="tsd-comment tsd-typography"><p>options object</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#bootstrapCrossSigning">bootstrapCrossSigning</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L218">src/crypto-api.ts:218</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L240">src/crypto-api.ts:240</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="bootstrapSecretStorage" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>bootstrap<wbr/>Secret<wbr/>Storage</span><a href="#bootstrapSecretStorage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="bootstrapSecretStorage.bootstrapSecretStorage-1"><span class="tsd-kind-call-signature">bootstrap<wbr/>Secret<wbr/>Storage</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">opts</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#bootstrapSecretStorage.bootstrapSecretStorage-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="bootstrapSecretStorage.bootstrapSecretStorage-1"><span class="tsd-kind-call-signature">bootstrap<wbr/>Secret<wbr/>Storage</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">opts</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#bootstrapSecretStorage.bootstrapSecretStorage-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Bootstrap the secret storage by creating a new secret storage key, add it in the secret storage and
 store the cross signing keys in the secret storage.</p>
@@ -178,31 +180,31 @@ Only if <code>setupNewSecretStorage</code> is set or if there is no AES key in t
 <div class="tsd-comment tsd-typography"><p>Options object.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#bootstrapSecretStorage">bootstrapSecretStorage</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L250">src/crypto-api.ts:250</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L272">src/crypto-api.ts:272</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="checkKeyBackupAndEnable" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>check<wbr/>Key<wbr/>Backup<wbr/>And<wbr/>Enable</span><a href="#checkKeyBackupAndEnable" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="checkKeyBackupAndEnable.checkKeyBackupAndEnable-1"><span class="tsd-kind-call-signature">check<wbr/>Key<wbr/>Backup<wbr/>And<wbr/>Enable</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="Crypto.KeyBackupCheck.html" class="tsd-signature-type tsd-kind-interface">KeyBackupCheck</a><span class="tsd-signature-symbol">&gt;</span><a href="#checkKeyBackupAndEnable.checkKeyBackupAndEnable-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="checkKeyBackupAndEnable.checkKeyBackupAndEnable-1"><span class="tsd-kind-call-signature">check<wbr/>Key<wbr/>Backup<wbr/>And<wbr/>Enable</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="Crypto.KeyBackupCheck.html" class="tsd-signature-type tsd-kind-interface">KeyBackupCheck</a><span class="tsd-signature-symbol">&gt;</span><a href="#checkKeyBackupAndEnable.checkKeyBackupAndEnable-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Force a re-check of the key backup and enable/disable it as appropriate.</p>
 <p>Fetches the current backup information from the server. If there is a backup, and it is trusted, starts
 backing up to it; otherwise, disables backups.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="Crypto.KeyBackupCheck.html" class="tsd-signature-type tsd-kind-interface">KeyBackupCheck</a><span class="tsd-signature-symbol">&gt;</span></h4><p><code>null</code> if there is no backup on the server. Otherwise, data on the backup as returned by the server,
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="Crypto.KeyBackupCheck.html" class="tsd-signature-type tsd-kind-interface">KeyBackupCheck</a><span class="tsd-signature-symbol">&gt;</span></h4><p><code>null</code> if there is no backup on the server. Otherwise, data on the backup as returned by the server,
   and trust information (as returned by <a href="Crypto.CryptoApi.html#isKeyBackupTrusted" class="tsd-kind-method">isKeyBackupTrusted</a>).</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#checkKeyBackupAndEnable">checkKeyBackupAndEnable</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L424">src/crypto-api.ts:424</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L446">src/crypto-api.ts:446</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="checkOwnCrossSigningTrust" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>check<wbr/>Own<wbr/>Cross<wbr/>Signing<wbr/>Trust</span><a href="#checkOwnCrossSigningTrust" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="checkOwnCrossSigningTrust.checkOwnCrossSigningTrust-1"><span class="tsd-kind-call-signature">check<wbr/>Own<wbr/>Cross<wbr/>Signing<wbr/>Trust</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">opts</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#checkOwnCrossSigningTrust.checkOwnCrossSigningTrust-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="checkOwnCrossSigningTrust.checkOwnCrossSigningTrust-1"><span class="tsd-kind-call-signature">check<wbr/>Own<wbr/>Cross<wbr/>Signing<wbr/>Trust</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">opts</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#checkOwnCrossSigningTrust.checkOwnCrossSigningTrust-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Check the cross signing trust of the current user</p>
 </div>
@@ -214,12 +216,12 @@ backing up to it; otherwise, disables backups.</p>
 <div class="tsd-comment tsd-typography"><p>Options object.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography">
 <h4>Deprecated</h4><p>Unneeded for the new crypto</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L103">src/common-crypto/CryptoBackend.ts:103</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L103">src/common-crypto/CryptoBackend.ts:103</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="checkUserTrust" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>check<wbr/>User<wbr/>Trust</span><a href="#checkUserTrust" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -240,11 +242,11 @@ backing up to it; otherwise, disables backups.</p>
 <h4>Deprecated</h4><p>Superceded by <a href="Crypto.CryptoApi.html#getUserVerificationStatus" class="tsd-kind-method">getUserVerificationStatus</a>.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L55">src/common-crypto/CryptoBackend.ts:55</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L55">src/common-crypto/CryptoBackend.ts:55</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="createRecoveryKeyFromPassphrase" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>create<wbr/>Recovery<wbr/>Key<wbr/>From<wbr/>Passphrase</span><a href="#createRecoveryKeyFromPassphrase" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="createRecoveryKeyFromPassphrase.createRecoveryKeyFromPassphrase-1"><span class="tsd-kind-call-signature">create<wbr/>Recovery<wbr/>Key<wbr/>From<wbr/>Passphrase</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">password</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.GeneratedSecretStorageKey.html" class="tsd-signature-type tsd-kind-interface">GeneratedSecretStorageKey</a><span class="tsd-signature-symbol">&gt;</span><a href="#createRecoveryKeyFromPassphrase.createRecoveryKeyFromPassphrase-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="createRecoveryKeyFromPassphrase.createRecoveryKeyFromPassphrase-1"><span class="tsd-kind-call-signature">create<wbr/>Recovery<wbr/>Key<wbr/>From<wbr/>Passphrase</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">password</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.GeneratedSecretStorageKey.html" class="tsd-signature-type tsd-kind-interface">GeneratedSecretStorageKey</a><span class="tsd-signature-symbol">&gt;</span><a href="#createRecoveryKeyFromPassphrase.createRecoveryKeyFromPassphrase-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Create a recovery key (ie, a key suitable for use with server-side secret storage).</p>
 <p>The key can either be based on a user-supplied passphrase, or just created randomly.</p>
@@ -259,17 +261,42 @@ backing up to it; otherwise, disables backups.</p>
      recovery key itself. If omitted, a key is generated randomly.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.GeneratedSecretStorageKey.html" class="tsd-signature-type tsd-kind-interface">GeneratedSecretStorageKey</a><span class="tsd-signature-symbol">&gt;</span></h4><p>Object including recovery key and server upload parameters.
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.GeneratedSecretStorageKey.html" class="tsd-signature-type tsd-kind-interface">GeneratedSecretStorageKey</a><span class="tsd-signature-symbol">&gt;</span></h4><p>Object including recovery key and server upload parameters.
      The private key should be disposed of after displaying to the use.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#createRecoveryKeyFromPassphrase">createRecoveryKeyFromPassphrase</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L274">src/crypto-api.ts:274</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L296">src/crypto-api.ts:296</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="crossSignDevice" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>cross<wbr/>Sign<wbr/>Device</span><a href="#crossSignDevice" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="crossSignDevice.crossSignDevice-1"><span class="tsd-kind-call-signature">cross<wbr/>Sign<wbr/>Device</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">deviceId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#crossSignDevice.crossSignDevice-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Cross-sign one of our own devices.</p>
+<p>This will create a signature for the device using our self-signing key, and publish that signature.
+Cross-signing a device indicates, to our other devices and to other users, that we have verified that it really
+belongs to us.</p>
+<p>Requires that cross-signing has been set up on this device (normally by calling <a href="Crypto.CryptoApi.html#bootstrapCrossSigning" class="tsd-kind-method">bootstrapCrossSigning</a>.</p>
+<p><em>Note</em>: Do not call this unless you have verified, somehow, that the device is genuine!</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">deviceId</span>: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>ID of the device to be signed.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#crossSignDevice">crossSignDevice</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L198">src/crypto-api.ts:198</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="decryptEvent" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>decrypt<wbr/>Event</span><a href="#decryptEvent" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="decryptEvent.decryptEvent-1"><span class="tsd-kind-call-signature">decrypt<wbr/>Event</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">event</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IEventDecryptionResult.html" class="tsd-signature-type tsd-kind-interface">IEventDecryptionResult</a><span class="tsd-signature-symbol">&gt;</span><a href="#decryptEvent.decryptEvent-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="decryptEvent.decryptEvent-1"><span class="tsd-kind-call-signature">decrypt<wbr/>Event</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">event</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IEventDecryptionResult.html" class="tsd-signature-type tsd-kind-interface">IEventDecryptionResult</a><span class="tsd-signature-symbol">&gt;</span><a href="#decryptEvent.decryptEvent-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Decrypt a received event</p>
 </div>
@@ -278,16 +305,16 @@ backing up to it; otherwise, disables backups.</p>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">event</span>: <a href="../classes/MatrixEvent.html" class="tsd-signature-type tsd-kind-class">MatrixEvent</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IEventDecryptionResult.html" class="tsd-signature-type tsd-kind-interface">IEventDecryptionResult</a><span class="tsd-signature-symbol">&gt;</span></h4><p>a promise which resolves once we have finished decrypting.
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IEventDecryptionResult.html" class="tsd-signature-type tsd-kind-interface">IEventDecryptionResult</a><span class="tsd-signature-symbol">&gt;</span></h4><p>a promise which resolves once we have finished decrypting.
 Rejects with an error if there is a problem decrypting the event.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L75">src/common-crypto/CryptoBackend.ts:75</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L75">src/common-crypto/CryptoBackend.ts:75</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="deleteKeyBackupVersion" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>delete<wbr/>Key<wbr/>Backup<wbr/>Version</span><a href="#deleteKeyBackupVersion" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="deleteKeyBackupVersion.deleteKeyBackupVersion-1"><span class="tsd-kind-call-signature">delete<wbr/>Key<wbr/>Backup<wbr/>Version</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">version</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#deleteKeyBackupVersion.deleteKeyBackupVersion-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="deleteKeyBackupVersion.deleteKeyBackupVersion-1"><span class="tsd-kind-call-signature">delete<wbr/>Key<wbr/>Backup<wbr/>Version</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">version</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#deleteKeyBackupVersion.deleteKeyBackupVersion-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Deletes the given key backup.</p>
 </div>
@@ -299,15 +326,15 @@ Rejects with an error if there is a problem decrypting the event.</p>
 <div class="tsd-comment tsd-typography"><p>The backup version to delete.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#deleteKeyBackupVersion">deleteKeyBackupVersion</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L442">src/crypto-api.ts:442</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L464">src/crypto-api.ts:464</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="encryptEvent" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>encrypt<wbr/>Event</span><a href="#encryptEvent" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="encryptEvent.encryptEvent-1"><span class="tsd-kind-call-signature">encrypt<wbr/>Event</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">event</span>, <span class="tsd-kind-parameter">room</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#encryptEvent.encryptEvent-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="encryptEvent.encryptEvent-1"><span class="tsd-kind-call-signature">encrypt<wbr/>Event</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">event</span>, <span class="tsd-kind-parameter">room</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#encryptEvent.encryptEvent-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Encrypt an event according to the configuration of the room.</p>
 </div>
@@ -324,27 +351,27 @@ Rejects with an error if there is a problem decrypting the event.</p>
 <div class="tsd-comment tsd-typography"><p>destination room.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Promise which resolves when the event has been
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>Promise which resolves when the event has been
     encrypted, or null if nothing was needed</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L67">src/common-crypto/CryptoBackend.ts:67</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L67">src/common-crypto/CryptoBackend.ts:67</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="exportRoomKeys" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>export<wbr/>Room<wbr/>Keys</span><a href="#exportRoomKeys" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="exportRoomKeys.exportRoomKeys-1"><span class="tsd-kind-call-signature">export<wbr/>Room<wbr/>Keys</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IMegolmSessionData.html" class="tsd-signature-type tsd-kind-interface">IMegolmSessionData</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#exportRoomKeys.exportRoomKeys-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="exportRoomKeys.exportRoomKeys-1"><span class="tsd-kind-call-signature">export<wbr/>Room<wbr/>Keys</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IMegolmSessionData.html" class="tsd-signature-type tsd-kind-interface">IMegolmSessionData</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#exportRoomKeys.exportRoomKeys-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get a list containing all of the room keys</p>
 <p>This should be encrypted before returning it to the user.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IMegolmSessionData.html" class="tsd-signature-type tsd-kind-interface">IMegolmSessionData</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><p>a promise which resolves to a list of
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IMegolmSessionData.html" class="tsd-signature-type tsd-kind-interface">IMegolmSessionData</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><p>a promise which resolves to a list of
    session export objects</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#exportRoomKeys">exportRoomKeys</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L78">src/crypto-api.ts:78</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L85">src/crypto-api.ts:85</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="findVerificationRequestDMInProgress" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>find<wbr/>Verification<wbr/>RequestDMIn<wbr/>Progress</span><a href="#findVerificationRequestDMInProgress" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -367,7 +394,7 @@ Rejects with an error if there is a problem decrypting the event.</p>
 </div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#findVerificationRequestDMInProgress">findVerificationRequestDMInProgress</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L309">src/crypto-api.ts:309</a></li></ul></aside></li>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L331">src/crypto-api.ts:331</a></li></ul></aside></li>
 <li class="tsd-signature tsd-anchor-link" id="findVerificationRequestDMInProgress.findVerificationRequestDMInProgress-2"><span class="tsd-kind-call-signature">find<wbr/>Verification<wbr/>RequestDMIn<wbr/>Progress</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">roomId</span>, <span class="tsd-kind-parameter">userId</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><a href="#findVerificationRequestDMInProgress.findVerificationRequestDMInProgress-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Finds a DM verification request that is already in progress for the given room and user.</p>
@@ -390,11 +417,11 @@ Rejects with an error if there is a problem decrypting the event.</p>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#findVerificationRequestDMInProgress">findVerificationRequestDMInProgress</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L319">src/crypto-api.ts:319</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L341">src/crypto-api.ts:341</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="forceDiscardSession" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>force<wbr/>Discard<wbr/>Session</span><a href="#forceDiscardSession" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="forceDiscardSession.forceDiscardSession-1"><span class="tsd-kind-call-signature">force<wbr/>Discard<wbr/>Session</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">roomId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#forceDiscardSession.forceDiscardSession-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="forceDiscardSession.forceDiscardSession-1"><span class="tsd-kind-call-signature">force<wbr/>Discard<wbr/>Session</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">roomId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#forceDiscardSession.forceDiscardSession-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Discard any existing megolm session for the given room.</p>
 <p>This will ensure that a new session is created on the next call to <a href="Crypto.CryptoApi.html#prepareToEncrypt" class="tsd-kind-method">prepareToEncrypt</a>,
@@ -410,28 +437,28 @@ problem with encryption.</p>
 <div class="tsd-comment tsd-typography"><p>the room to discard sessions for</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#forceDiscardSession">forceDiscardSession</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L68">src/crypto-api.ts:68</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L75">src/crypto-api.ts:75</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getActiveSessionBackupVersion" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Active<wbr/>Session<wbr/>Backup<wbr/>Version</span><a href="#getActiveSessionBackupVersion" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="getActiveSessionBackupVersion.getActiveSessionBackupVersion-1"><span class="tsd-kind-call-signature">get<wbr/>Active<wbr/>Session<wbr/>Backup<wbr/>Version</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#getActiveSessionBackupVersion.getActiveSessionBackupVersion-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getActiveSessionBackupVersion.getActiveSessionBackupVersion-1"><span class="tsd-kind-call-signature">get<wbr/>Active<wbr/>Session<wbr/>Backup<wbr/>Version</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#getActiveSessionBackupVersion.getActiveSessionBackupVersion-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get the current status of key backup.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><p>If automatic key backups are enabled, the <code>version</code> of the active backup. Otherwise, <code>null</code>.</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><p>If automatic key backups are enabled, the <code>version</code> of the active backup. Otherwise, <code>null</code>.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getActiveSessionBackupVersion">getActiveSessionBackupVersion</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L406">src/crypto-api.ts:406</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L428">src/crypto-api.ts:428</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getBackupDecryptor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Backup<wbr/>Decryptor</span><a href="#getBackupDecryptor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="getBackupDecryptor.getBackupDecryptor-1"><span class="tsd-kind-call-signature">get<wbr/>Backup<wbr/>Decryptor</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">backupInfo</span>, <span class="tsd-kind-parameter">privKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="_internal_.BackupDecryptor.html" class="tsd-signature-type tsd-kind-interface">BackupDecryptor</a><span class="tsd-signature-symbol">&gt;</span><a href="#getBackupDecryptor.getBackupDecryptor-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getBackupDecryptor.getBackupDecryptor-1"><span class="tsd-kind-call-signature">get<wbr/>Backup<wbr/>Decryptor</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">backupInfo</span>, <span class="tsd-kind-parameter">privKey</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="_internal_.BackupDecryptor.html" class="tsd-signature-type tsd-kind-interface">BackupDecryptor</a><span class="tsd-signature-symbol">&gt;</span><a href="#getBackupDecryptor.getBackupDecryptor-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get a backup decryptor capable of decrypting megolm session data encrypted with the given backup information.</p>
 </div>
@@ -448,14 +475,14 @@ problem with encryption.</p>
 <div class="tsd-comment tsd-typography"><p>The private decryption key.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="_internal_.BackupDecryptor.html" class="tsd-signature-type tsd-kind-interface">BackupDecryptor</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="_internal_.BackupDecryptor.html" class="tsd-signature-type tsd-kind-interface">BackupDecryptor</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L110">src/common-crypto/CryptoBackend.ts:110</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L110">src/common-crypto/CryptoBackend.ts:110</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getCrossSigningKeyId" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Cross<wbr/>Signing<wbr/>Key<wbr/>Id</span><a href="#getCrossSigningKeyId" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="getCrossSigningKeyId.getCrossSigningKeyId-1"><span class="tsd-kind-call-signature">get<wbr/>Cross<wbr/>Signing<wbr/>Key<wbr/>Id</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">type</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#getCrossSigningKeyId.getCrossSigningKeyId-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getCrossSigningKeyId.getCrossSigningKeyId-1"><span class="tsd-kind-call-signature">get<wbr/>Cross<wbr/>Signing<wbr/>Key<wbr/>Id</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">type</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#getCrossSigningKeyId.getCrossSigningKeyId-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get the ID of one of the user&#39;s cross-signing keys.</p>
 </div>
@@ -468,20 +495,20 @@ problem with encryption.</p>
     or <code>CrossSigningKey.UserSigning</code>.  Defaults to <code>CrossSigningKey.Master</code>.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><p>If cross-signing has been initialised on this device, the ID of the given key. Otherwise, null</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><p>If cross-signing has been initialised on this device, the ID of the given key. Otherwise, null</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getCrossSigningKeyId">getCrossSigningKeyId</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L202">src/crypto-api.ts:202</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L224">src/crypto-api.ts:224</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getCrossSigningStatus" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Cross<wbr/>Signing<wbr/>Status</span><a href="#getCrossSigningStatus" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="getCrossSigningStatus.getCrossSigningStatus-1"><span class="tsd-kind-call-signature">get<wbr/>Cross<wbr/>Signing<wbr/>Status</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.CrossSigningStatus.html" class="tsd-signature-type tsd-kind-interface">CrossSigningStatus</a><span class="tsd-signature-symbol">&gt;</span><a href="#getCrossSigningStatus.getCrossSigningStatus-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getCrossSigningStatus.getCrossSigningStatus-1"><span class="tsd-kind-call-signature">get<wbr/>Cross<wbr/>Signing<wbr/>Status</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.CrossSigningStatus.html" class="tsd-signature-type tsd-kind-interface">CrossSigningStatus</a><span class="tsd-signature-symbol">&gt;</span><a href="#getCrossSigningStatus.getCrossSigningStatus-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get the status of our cross-signing keys.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.CrossSigningStatus.html" class="tsd-signature-type tsd-kind-interface">CrossSigningStatus</a><span class="tsd-signature-symbol">&gt;</span></h4><p>The current status of cross-signing keys: whether we have public and private keys cached locally, and
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.CrossSigningStatus.html" class="tsd-signature-type tsd-kind-interface">CrossSigningStatus</a><span class="tsd-signature-symbol">&gt;</span></h4><p>The current status of cross-signing keys: whether we have public and private keys cached locally, and
 whether the private keys are in secret storage.</p>
 
 <div class="tsd-comment tsd-typography">
@@ -489,11 +516,11 @@ whether the private keys are in secret storage.</p>
 </div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getCrossSigningStatus">getCrossSigningStatus</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L260">src/crypto-api.ts:260</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L282">src/crypto-api.ts:282</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getDeviceVerificationStatus" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Device<wbr/>Verification<wbr/>Status</span><a href="#getDeviceVerificationStatus" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="getDeviceVerificationStatus.getDeviceVerificationStatus-1"><span class="tsd-kind-call-signature">get<wbr/>Device<wbr/>Verification<wbr/>Status</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span>, <span class="tsd-kind-parameter">deviceId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../classes/Crypto.DeviceVerificationStatus.html" class="tsd-signature-type tsd-kind-class">DeviceVerificationStatus</a><span class="tsd-signature-symbol">&gt;</span><a href="#getDeviceVerificationStatus.getDeviceVerificationStatus-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getDeviceVerificationStatus.getDeviceVerificationStatus-1"><span class="tsd-kind-call-signature">get<wbr/>Device<wbr/>Verification<wbr/>Status</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span>, <span class="tsd-kind-parameter">deviceId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../classes/Crypto.DeviceVerificationStatus.html" class="tsd-signature-type tsd-kind-class">DeviceVerificationStatus</a><span class="tsd-signature-symbol">&gt;</span><a href="#getDeviceVerificationStatus.getDeviceVerificationStatus-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get the verification status of a given device.</p>
 </div>
@@ -510,17 +537,17 @@ whether the private keys are in secret storage.</p>
 <div class="tsd-comment tsd-typography"><p>The ID of the device to check</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../classes/Crypto.DeviceVerificationStatus.html" class="tsd-signature-type tsd-kind-class">DeviceVerificationStatus</a><span class="tsd-signature-symbol">&gt;</span></h4><p><code>null</code> if the device is unknown, or has not published any encryption keys (implying it does not support
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../classes/Crypto.DeviceVerificationStatus.html" class="tsd-signature-type tsd-kind-class">DeviceVerificationStatus</a><span class="tsd-signature-symbol">&gt;</span></h4><p><code>null</code> if the device is unknown, or has not published any encryption keys (implying it does not support
     encryption); otherwise the verification status of the device.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getDeviceVerificationStatus">getDeviceVerificationStatus</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L160">src/crypto-api.ts:160</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L167">src/crypto-api.ts:167</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getEncryptionInfoForEvent" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Encryption<wbr/>Info<wbr/>For<wbr/>Event</span><a href="#getEncryptionInfoForEvent" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="getEncryptionInfoForEvent.getEncryptionInfoForEvent-1"><span class="tsd-kind-call-signature">get<wbr/>Encryption<wbr/>Info<wbr/>For<wbr/>Event</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">event</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="Crypto.EventEncryptionInfo.html" class="tsd-signature-type tsd-kind-interface">EventEncryptionInfo</a><span class="tsd-signature-symbol">&gt;</span><a href="#getEncryptionInfoForEvent.getEncryptionInfoForEvent-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getEncryptionInfoForEvent.getEncryptionInfoForEvent-1"><span class="tsd-kind-call-signature">get<wbr/>Encryption<wbr/>Info<wbr/>For<wbr/>Event</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">event</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="Crypto.EventEncryptionInfo.html" class="tsd-signature-type tsd-kind-interface">EventEncryptionInfo</a><span class="tsd-signature-symbol">&gt;</span><a href="#getEncryptionInfoForEvent.getEncryptionInfoForEvent-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get information about the encryption of the given event.</p>
 </div>
@@ -532,13 +559,13 @@ whether the private keys are in secret storage.</p>
 <div class="tsd-comment tsd-typography"><p>the event to get information for</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="Crypto.EventEncryptionInfo.html" class="tsd-signature-type tsd-kind-interface">EventEncryptionInfo</a><span class="tsd-signature-symbol">&gt;</span></h4><p><code>null</code> if the event is not encrypted, or has not (yet) been successfully decrypted. Otherwise, an
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="Crypto.EventEncryptionInfo.html" class="tsd-signature-type tsd-kind-interface">EventEncryptionInfo</a><span class="tsd-signature-symbol">&gt;</span></h4><p><code>null</code> if the event is not encrypted, or has not (yet) been successfully decrypted. Otherwise, an
      object with information about the encryption of the event.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getEncryptionInfoForEvent">getEncryptionInfoForEvent</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L284">src/crypto-api.ts:284</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L306">src/crypto-api.ts:306</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getEventEncryptionInfo" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Event<wbr/>Encryption<wbr/>Info</span><a href="#getEventEncryptionInfo" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -557,21 +584,34 @@ whether the private keys are in secret storage.</p>
 <h4 class="tsd-returns-title">Returns <a href="_internal_.IEncryptedEventInfo.html" class="tsd-signature-type tsd-kind-interface">IEncryptedEventInfo</a></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L82">src/common-crypto/CryptoBackend.ts:82</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L82">src/common-crypto/CryptoBackend.ts:82</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-inherited"><a id="getOwnDeviceKeys" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Own<wbr/>Device<wbr/>Keys</span><a href="#getOwnDeviceKeys" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="getOwnDeviceKeys.getOwnDeviceKeys-1"><span class="tsd-kind-call-signature">get<wbr/>Own<wbr/>Device<wbr/>Keys</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.OwnDeviceKeys.html" class="tsd-signature-type tsd-kind-interface">OwnDeviceKeys</a><span class="tsd-signature-symbol">&gt;</span><a href="#getOwnDeviceKeys.getOwnDeviceKeys-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Get the public part of the device keys for the current device.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.OwnDeviceKeys.html" class="tsd-signature-type tsd-kind-interface">OwnDeviceKeys</a><span class="tsd-signature-symbol">&gt;</span></h4><p>The public device keys.</p>
+
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getOwnDeviceKeys">getOwnDeviceKeys</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L54">src/crypto-api.ts:54</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getSessionBackupPrivateKey" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span><a href="#getSessionBackupPrivateKey" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="getSessionBackupPrivateKey.getSessionBackupPrivateKey-1"><span class="tsd-kind-call-signature">get<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" class="tsd-signature-type external" target="_blank">Uint8Array</a><span class="tsd-signature-symbol">&gt;</span><a href="#getSessionBackupPrivateKey.getSessionBackupPrivateKey-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getSessionBackupPrivateKey.getSessionBackupPrivateKey-1"><span class="tsd-kind-call-signature">get<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" class="tsd-signature-type external" target="_blank">Uint8Array</a><span class="tsd-signature-symbol">&gt;</span><a href="#getSessionBackupPrivateKey.getSessionBackupPrivateKey-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Fetch the backup decryption key we have saved in our store.</p>
 <p>This can be used for gossiping the key to other devices.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" class="tsd-signature-type external" target="_blank">Uint8Array</a><span class="tsd-signature-symbol">&gt;</span></h4><p>the key, if any, or null</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" class="tsd-signature-type external" target="_blank">Uint8Array</a><span class="tsd-signature-symbol">&gt;</span></h4><p>the key, if any, or null</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getSessionBackupPrivateKey">getSessionBackupPrivateKey</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L376">src/crypto-api.ts:376</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L398">src/crypto-api.ts:398</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="getStoredCrossSigningForUser" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Stored<wbr/>Cross<wbr/>Signing<wbr/>For<wbr/>User</span><a href="#getStoredCrossSigningForUser" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -594,7 +634,7 @@ whether the private keys are in secret storage.</p>
 <h4>Deprecated</h4><p>Prefer <a href="Crypto.CryptoApi.html#userHasCrossSigningKeys" class="tsd-kind-method">userHasCrossSigningKeys</a></p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L94">src/common-crypto/CryptoBackend.ts:94</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L94">src/common-crypto/CryptoBackend.ts:94</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getTrustCrossSignedDevices" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Trust<wbr/>Cross<wbr/>Signed<wbr/>Devices</span><a href="#getTrustCrossSignedDevices" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -609,11 +649,11 @@ whether the private keys are in secret storage.</p>
 </div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getTrustCrossSignedDevices">getTrustCrossSignedDevices</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L141">src/crypto-api.ts:141</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L148">src/crypto-api.ts:148</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getUserDeviceInfo" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>User<wbr/>Device<wbr/>Info</span><a href="#getUserDeviceInfo" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="getUserDeviceInfo.getUserDeviceInfo-1"><span class="tsd-kind-call-signature">get<wbr/>User<wbr/>Device<wbr/>Info</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userIds</span>, <span class="tsd-kind-parameter">downloadUncached</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../types/DeviceMap.html" class="tsd-signature-type tsd-kind-type-alias">DeviceMap</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUserDeviceInfo.getUserDeviceInfo-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getUserDeviceInfo.getUserDeviceInfo-1"><span class="tsd-kind-call-signature">get<wbr/>User<wbr/>Device<wbr/>Info</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userIds</span>, <span class="tsd-kind-parameter">downloadUncached</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../types/DeviceMap.html" class="tsd-signature-type tsd-kind-type-alias">DeviceMap</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUserDeviceInfo.getUserDeviceInfo-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get the device information for the given list of users.</p>
 <p>For any users whose device lists are cached (due to sharing an encrypted room with the user), the
@@ -635,16 +675,16 @@ a <code>/keys/query</code> request is made to the server to retrieve these devic
    currently tracking. Defaults to false, in which case such users will not appear at all in the result map.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../types/DeviceMap.html" class="tsd-signature-type tsd-kind-type-alias">DeviceMap</a><span class="tsd-signature-symbol">&gt;</span></h4><p>A map <code>{@link DeviceMap}</code>.</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../types/DeviceMap.html" class="tsd-signature-type tsd-kind-type-alias">DeviceMap</a><span class="tsd-signature-symbol">&gt;</span></h4><p>A map <code>{@link DeviceMap}</code>.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getUserDeviceInfo">getUserDeviceInfo</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L120">src/crypto-api.ts:120</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L127">src/crypto-api.ts:127</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getUserVerificationStatus" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>User<wbr/>Verification<wbr/>Status</span><a href="#getUserVerificationStatus" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="getUserVerificationStatus.getUserVerificationStatus-1"><span class="tsd-kind-call-signature">get<wbr/>User<wbr/>Verification<wbr/>Status</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/Crypto.UserVerificationStatus.html" class="tsd-signature-type tsd-kind-class">UserVerificationStatus</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUserVerificationStatus.getUserVerificationStatus-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getUserVerificationStatus.getUserVerificationStatus-1"><span class="tsd-kind-call-signature">get<wbr/>User<wbr/>Verification<wbr/>Status</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/Crypto.UserVerificationStatus.html" class="tsd-signature-type tsd-kind-class">UserVerificationStatus</a><span class="tsd-signature-symbol">&gt;</span><a href="#getUserVerificationStatus.getUserVerificationStatus-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Get the verification status of a given user.</p>
 </div>
@@ -656,11 +696,11 @@ a <code>/keys/query</code> request is made to the server to retrieve these devic
 <div class="tsd-comment tsd-typography"><p>The ID of the user to check.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/Crypto.UserVerificationStatus.html" class="tsd-signature-type tsd-kind-class">UserVerificationStatus</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/Crypto.UserVerificationStatus.html" class="tsd-signature-type tsd-kind-class">UserVerificationStatus</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getUserVerificationStatus">getUserVerificationStatus</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L149">src/crypto-api.ts:149</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L156">src/crypto-api.ts:156</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getVerificationRequestsToDeviceInProgress" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Verification<wbr/>Requests<wbr/>To<wbr/>Device<wbr/>In<wbr/>Progress</span><a href="#getVerificationRequestsToDeviceInProgress" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -681,7 +721,7 @@ a <code>/keys/query</code> request is made to the server to retrieve these devic
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getVerificationRequestsToDeviceInProgress">getVerificationRequestsToDeviceInProgress</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L299">src/crypto-api.ts:299</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L321">src/crypto-api.ts:321</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="getVersion" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Version</span><a href="#getVersion" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -695,11 +735,11 @@ For example: <code>Rust SDK ${versions.matrix_sdk_crypto} (${versions.git_sha}),
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#getVersion">getVersion</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L47">src/crypto-api.ts:47</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L47">src/crypto-api.ts:47</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="importRoomKeys" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>import<wbr/>Room<wbr/>Keys</span><a href="#importRoomKeys" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="importRoomKeys.importRoomKeys-1"><span class="tsd-kind-call-signature">import<wbr/>Room<wbr/>Keys</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">keys</span>, <span class="tsd-kind-parameter">opts</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#importRoomKeys.importRoomKeys-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="importRoomKeys.importRoomKeys-1"><span class="tsd-kind-call-signature">import<wbr/>Room<wbr/>Keys</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">keys</span>, <span class="tsd-kind-parameter">opts</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#importRoomKeys.importRoomKeys-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Import a list of room keys previously exported by exportRoomKeys</p>
 </div>
@@ -716,16 +756,16 @@ For example: <code>Rust SDK ${versions.matrix_sdk_crypto} (${versions.git_sha}),
 <div class="tsd-comment tsd-typography"><p>options object</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>a promise which resolves once the keys have been imported</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><p>a promise which resolves once the keys have been imported</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#importRoomKeys">importRoomKeys</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L87">src/crypto-api.ts:87</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L94">src/crypto-api.ts:94</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="isCrossSigningReady" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>is<wbr/>Cross<wbr/>Signing<wbr/>Ready</span><a href="#isCrossSigningReady" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="isCrossSigningReady.isCrossSigningReady-1"><span class="tsd-kind-call-signature">is<wbr/>Cross<wbr/>Signing<wbr/>Ready</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#isCrossSigningReady.isCrossSigningReady-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="isCrossSigningReady.isCrossSigningReady-1"><span class="tsd-kind-call-signature">is<wbr/>Cross<wbr/>Signing<wbr/>Ready</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#isCrossSigningReady.isCrossSigningReady-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Checks whether cross signing:</p>
 <ul>
@@ -737,18 +777,18 @@ to fix things such that it returns true. That is to say, after
 bootstrapCrossSigning() completes successfully, this function should
 return true.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><p>True if cross-signing is ready to be used on this device</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><p>True if cross-signing is ready to be used on this device</p>
 
 <div class="tsd-comment tsd-typography">
 <h4>Throws</h4><p>May throw <a href="../classes/ClientStoppedError.html" class="tsd-kind-class">ClientStoppedError</a> if the <code>MatrixClient</code> is stopped before or during the call.</p>
 </div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#isCrossSigningReady">isCrossSigningReady</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L192">src/crypto-api.ts:192</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L214">src/crypto-api.ts:214</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="isKeyBackupTrusted" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>is<wbr/>Key<wbr/>Backup<wbr/>Trusted</span><a href="#isKeyBackupTrusted" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="isKeyBackupTrusted.isKeyBackupTrusted-1"><span class="tsd-kind-call-signature">is<wbr/>Key<wbr/>Backup<wbr/>Trusted</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">info</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.BackupTrustInfo.html" class="tsd-signature-type tsd-kind-interface">BackupTrustInfo</a><span class="tsd-signature-symbol">&gt;</span><a href="#isKeyBackupTrusted.isKeyBackupTrusted-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="isKeyBackupTrusted.isKeyBackupTrusted-1"><span class="tsd-kind-call-signature">is<wbr/>Key<wbr/>Backup<wbr/>Trusted</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">info</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.BackupTrustInfo.html" class="tsd-signature-type tsd-kind-interface">BackupTrustInfo</a><span class="tsd-signature-symbol">&gt;</span><a href="#isKeyBackupTrusted.isKeyBackupTrusted-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Determine if a key backup can be trusted.</p>
 </div>
@@ -760,15 +800,15 @@ return true.</p>
 <div class="tsd-comment tsd-typography"><p>key backup info dict from <a href="../classes/MatrixClient.html#getKeyBackupVersion" class="tsd-kind-method">getKeyBackupVersion</a>.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.BackupTrustInfo.html" class="tsd-signature-type tsd-kind-interface">BackupTrustInfo</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="Crypto.BackupTrustInfo.html" class="tsd-signature-type tsd-kind-interface">BackupTrustInfo</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#isKeyBackupTrusted">isKeyBackupTrusted</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L413">src/crypto-api.ts:413</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L435">src/crypto-api.ts:435</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="isSecretStorageReady" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>is<wbr/>Secret<wbr/>Storage<wbr/>Ready</span><a href="#isSecretStorageReady" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="isSecretStorageReady.isSecretStorageReady-1"><span class="tsd-kind-call-signature">is<wbr/>Secret<wbr/>Storage<wbr/>Ready</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#isSecretStorageReady.isSecretStorageReady-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="isSecretStorageReady.isSecretStorageReady-1"><span class="tsd-kind-call-signature">is<wbr/>Secret<wbr/>Storage<wbr/>Ready</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#isSecretStorageReady.isSecretStorageReady-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Checks whether secret storage:</p>
 <ul>
@@ -781,16 +821,16 @@ to fix things such that it returns true. That is to say, after
 bootstrapSecretStorage() completes successfully, this function should
 return true.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><p>True if secret storage is ready to be used on this device</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><p>True if secret storage is ready to be used on this device</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#isSecretStorageReady">isSecretStorageReady</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L233">src/crypto-api.ts:233</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L255">src/crypto-api.ts:255</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="onCryptoEvent" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>on<wbr/>Crypto<wbr/>Event</span><a href="#onCryptoEvent" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="onCryptoEvent.onCryptoEvent-1"><span class="tsd-kind-call-signature">on<wbr/>Crypto<wbr/>Event</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">room</span>, <span class="tsd-kind-parameter">event</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#onCryptoEvent.onCryptoEvent-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="onCryptoEvent.onCryptoEvent-1"><span class="tsd-kind-call-signature">on<wbr/>Crypto<wbr/>Event</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">room</span>, <span class="tsd-kind-parameter">event</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#onCryptoEvent.onCryptoEvent-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Called by the /sync loop whenever an m.room.encryption event is received.</p>
 <p>This is called before RoomStateEvents are emitted for any of the events in the /sync
@@ -812,11 +852,11 @@ crypto layer confused because it expects crypto to be set up, but it has not yet
 <div class="tsd-comment tsd-typography"><p>encryption event to be processed</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="_internal_.SyncCryptoCallbacks.html">SyncCryptoCallbacks</a>.<a href="_internal_.SyncCryptoCallbacks.html#onCryptoEvent">onCryptoEvent</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L160">src/common-crypto/CryptoBackend.ts:160</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L160">src/common-crypto/CryptoBackend.ts:160</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="onSyncCompleted" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>on<wbr/>Sync<wbr/>Completed</span><a href="#onSyncCompleted" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -837,7 +877,7 @@ crypto layer confused because it expects crypto to be set up, but it has not yet
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="_internal_.SyncCryptoCallbacks.html">SyncCryptoCallbacks</a>.<a href="_internal_.SyncCryptoCallbacks.html#onSyncCompleted">onSyncCompleted</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L169">src/common-crypto/CryptoBackend.ts:169</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L169">src/common-crypto/CryptoBackend.ts:169</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="prepareToEncrypt" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>prepare<wbr/>To<wbr/>Encrypt</span><a href="#prepareToEncrypt" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -858,11 +898,11 @@ send, in order to speed up sending of the message.</p>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#prepareToEncrypt">prepareToEncrypt</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L55">src/crypto-api.ts:55</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L62">src/crypto-api.ts:62</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="preprocessToDeviceMessages" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>preprocess<wbr/>To<wbr/>Device<wbr/>Messages</span><a href="#preprocessToDeviceMessages" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="preprocessToDeviceMessages.preprocessToDeviceMessages-1"><span class="tsd-kind-call-signature">preprocess<wbr/>To<wbr/>Device<wbr/>Messages</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">events</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IToDeviceEvent.html" class="tsd-signature-type tsd-kind-interface">IToDeviceEvent</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#preprocessToDeviceMessages.preprocessToDeviceMessages-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="preprocessToDeviceMessages.preprocessToDeviceMessages-1"><span class="tsd-kind-call-signature">preprocess<wbr/>To<wbr/>Device<wbr/>Messages</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">events</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IToDeviceEvent.html" class="tsd-signature-type tsd-kind-interface">IToDeviceEvent</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#preprocessToDeviceMessages.preprocessToDeviceMessages-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Called by the /sync loop whenever there are incoming to-device messages.</p>
 <p>The implementation may preprocess the received messages (eg, decrypt them) and return an
@@ -878,16 +918,16 @@ messages, rather than the results of any decryption attempts.</p>
 <div class="tsd-comment tsd-typography"><p>the received to-device messages</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IToDeviceEvent.html" class="tsd-signature-type tsd-kind-interface">IToDeviceEvent</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><p>A list of preprocessed to-device messages.</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="IToDeviceEvent.html" class="tsd-signature-type tsd-kind-interface">IToDeviceEvent</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><p>A list of preprocessed to-device messages.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="_internal_.SyncCryptoCallbacks.html">SyncCryptoCallbacks</a>.<a href="_internal_.SyncCryptoCallbacks.html#preprocessToDeviceMessages">preprocessToDeviceMessages</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L130">src/common-crypto/CryptoBackend.ts:130</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L130">src/common-crypto/CryptoBackend.ts:130</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="processDeviceLists" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>process<wbr/>Device<wbr/>Lists</span><a href="#processDeviceLists" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="processDeviceLists.processDeviceLists-1"><span class="tsd-kind-call-signature">process<wbr/>Device<wbr/>Lists</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">deviceLists</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#processDeviceLists.processDeviceLists-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="processDeviceLists.processDeviceLists-1"><span class="tsd-kind-call-signature">process<wbr/>Device<wbr/>Lists</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">deviceLists</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#processDeviceLists.processDeviceLists-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Handle the notification from /sync that device lists have
 been changed.</p>
@@ -900,15 +940,15 @@ been changed.</p>
 <div class="tsd-comment tsd-typography"><p>device_lists field from /sync</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="_internal_.SyncCryptoCallbacks.html">SyncCryptoCallbacks</a>.<a href="_internal_.SyncCryptoCallbacks.html#processDeviceLists">processDeviceLists</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L146">src/common-crypto/CryptoBackend.ts:146</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L146">src/common-crypto/CryptoBackend.ts:146</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="processKeyCounts" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>process<wbr/>Key<wbr/>Counts</span><a href="#processKeyCounts" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="processKeyCounts.processKeyCounts-1"><span class="tsd-kind-call-signature">process<wbr/>Key<wbr/>Counts</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">oneTimeKeysCounts</span><span class="tsd-signature-symbol">?</span>, <span class="tsd-kind-parameter">unusedFallbackKeys</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#processKeyCounts.processKeyCounts-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="processKeyCounts.processKeyCounts-1"><span class="tsd-kind-call-signature">process<wbr/>Key<wbr/>Counts</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">oneTimeKeysCounts</span><span class="tsd-signature-symbol">?</span>, <span class="tsd-kind-parameter">unusedFallbackKeys</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#processKeyCounts.processKeyCounts-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Called by the /sync loop when one time key counts and unused fallback key details are received.</p>
 </div>
@@ -925,15 +965,15 @@ been changed.</p>
 <div class="tsd-comment tsd-typography"><p>the received unused fallback keys</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="_internal_.SyncCryptoCallbacks.html">SyncCryptoCallbacks</a>.<a href="_internal_.SyncCryptoCallbacks.html#processKeyCounts">processKeyCounts</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L138">src/common-crypto/CryptoBackend.ts:138</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L138">src/common-crypto/CryptoBackend.ts:138</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="requestDeviceVerification" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>request<wbr/>Device<wbr/>Verification</span><a href="#requestDeviceVerification" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="requestDeviceVerification.requestDeviceVerification-1"><span class="tsd-kind-call-signature">request<wbr/>Device<wbr/>Verification</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span>, <span class="tsd-kind-parameter">deviceId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span><a href="#requestDeviceVerification.requestDeviceVerification-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="requestDeviceVerification.requestDeviceVerification-1"><span class="tsd-kind-call-signature">request<wbr/>Device<wbr/>Verification</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span>, <span class="tsd-kind-parameter">deviceId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span><a href="#requestDeviceVerification.requestDeviceVerification-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Request an interactive verification with the given device.</p>
 <p>This is normally used on one of our own devices, when the current device is already cross-signed, and we want to
@@ -955,16 +995,16 @@ MatrixClient.</p>
 <div class="tsd-comment tsd-typography"><p>ID of the device to verify</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span></h4><p>a VerificationRequest when the request has been sent to the other party.</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span></h4><p>a VerificationRequest when the request has been sent to the other party.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#requestDeviceVerification">requestDeviceVerification</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L361">src/crypto-api.ts:361</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L383">src/crypto-api.ts:383</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="requestOwnUserVerification" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>request<wbr/>Own<wbr/>User<wbr/>Verification</span><a href="#requestOwnUserVerification" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="requestOwnUserVerification.requestOwnUserVerification-1"><span class="tsd-kind-call-signature">request<wbr/>Own<wbr/>User<wbr/>Verification</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span><a href="#requestOwnUserVerification.requestOwnUserVerification-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="requestOwnUserVerification.requestOwnUserVerification-1"><span class="tsd-kind-call-signature">request<wbr/>Own<wbr/>User<wbr/>Verification</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span><a href="#requestOwnUserVerification.requestOwnUserVerification-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Send a verification request to our other devices.</p>
 <p>This is normally used when the current device is new, and we want to ask another of our devices to cross-sign.</p>
@@ -972,16 +1012,16 @@ MatrixClient.</p>
 <p>To control the methods offered, set <a href="ICreateClientOpts.html#verificationMethods" class="tsd-kind-property">verificationMethods</a> when creating the
 MatrixClient.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span></h4><p>a VerificationRequest when the request has been sent to the other party.</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span></h4><p>a VerificationRequest when the request has been sent to the other party.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#requestOwnUserVerification">requestOwnUserVerification</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L343">src/crypto-api.ts:343</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L365">src/crypto-api.ts:365</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="requestVerificationDM" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>request<wbr/>VerificationDM</span><a href="#requestVerificationDM" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="requestVerificationDM.requestVerificationDM-1"><span class="tsd-kind-call-signature">request<wbr/>VerificationDM</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span>, <span class="tsd-kind-parameter">roomId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span><a href="#requestVerificationDM.requestVerificationDM-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="requestVerificationDM.requestVerificationDM-1"><span class="tsd-kind-call-signature">request<wbr/>VerificationDM</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span>, <span class="tsd-kind-parameter">roomId</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span><a href="#requestVerificationDM.requestVerificationDM-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Request a key verification from another user, using a DM.</p>
 </div>
@@ -998,16 +1038,16 @@ MatrixClient.</p>
 <div class="tsd-comment tsd-typography"><p>the room to use for verification.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span></h4><p>resolves to a VerificationRequest when the request has been sent to the other party.</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/Crypto.html" class="tsd-signature-type tsd-kind-namespace">Crypto</a><span class="tsd-signature-symbol">.</span><a href="Crypto.VerificationRequest.html" class="tsd-signature-type tsd-kind-interface">VerificationRequest</a><span class="tsd-signature-symbol">&gt;</span></h4><p>resolves to a VerificationRequest when the request has been sent to the other party.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#requestVerificationDM">requestVerificationDM</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L329">src/crypto-api.ts:329</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L351">src/crypto-api.ts:351</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="resetKeyBackup" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>reset<wbr/>Key<wbr/>Backup</span><a href="#resetKeyBackup" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="resetKeyBackup.resetKeyBackup-1"><span class="tsd-kind-call-signature">reset<wbr/>Key<wbr/>Backup</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#resetKeyBackup.resetKeyBackup-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="resetKeyBackup.resetKeyBackup-1"><span class="tsd-kind-call-signature">reset<wbr/>Key<wbr/>Backup</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#resetKeyBackup.resetKeyBackup-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Creates a new key backup version.</p>
 <p>If there are existing backups they will be replaced.</p>
@@ -1015,18 +1055,18 @@ MatrixClient.</p>
 callback will be called)
 and the backup engine will be started.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#resetKeyBackup">resetKeyBackup</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L435">src/crypto-api.ts:435</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L457">src/crypto-api.ts:457</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="setDeviceVerified" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Device<wbr/>Verified</span><a href="#setDeviceVerified" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="setDeviceVerified.setDeviceVerified-1"><span class="tsd-kind-call-signature">set<wbr/>Device<wbr/>Verified</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span>, <span class="tsd-kind-parameter">deviceId</span>, <span class="tsd-kind-parameter">verified</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#setDeviceVerified.setDeviceVerified-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="setDeviceVerified.setDeviceVerified-1"><span class="tsd-kind-call-signature">set<wbr/>Device<wbr/>Verified</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span>, <span class="tsd-kind-parameter">deviceId</span>, <span class="tsd-kind-parameter">verified</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#setDeviceVerified.setDeviceVerified-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Mark the given device as locally verified.</p>
-<p>Marking a devices as locally verified has much the same effect as completing the verification dance, or receiving
+<p>Marking a device as locally verified has much the same effect as completing the verification dance, or receiving
 a cross-signing signature for it.</p>
 </div>
 <div class="tsd-parameters">
@@ -1047,7 +1087,7 @@ a cross-signing signature for it.</p>
 <div class="tsd-comment tsd-typography"><p>whether to mark the device as verified. Defaults to &#39;true&#39;.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography">
 <h4>Throws</h4><p>an error if the device is unknown, or has not published any encryption keys.</p>
 
@@ -1055,7 +1095,7 @@ a cross-signing signature for it.</p>
 </div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#setDeviceVerified">setDeviceVerified</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L176">src/crypto-api.ts:176</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L183">src/crypto-api.ts:183</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="setTrustCrossSignedDevices" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Trust<wbr/>Cross<wbr/>Signed<wbr/>Devices</span><a href="#setTrustCrossSignedDevices" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
@@ -1078,7 +1118,7 @@ verified that device individually (effectively disabling cross-signing).</p>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#setTrustCrossSignedDevices">setTrustCrossSignedDevices</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L132">src/crypto-api.ts:132</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L139">src/crypto-api.ts:139</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="stop" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>stop</span><a href="#stop" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1089,11 +1129,11 @@ verified that device individually (effectively disabling cross-signing).</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/common-crypto/CryptoBackend.ts#L46">src/common-crypto/CryptoBackend.ts:46</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/common-crypto/CryptoBackend.ts#L46">src/common-crypto/CryptoBackend.ts:46</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="storeSessionBackupPrivateKey" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>store<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span><a href="#storeSessionBackupPrivateKey" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="storeSessionBackupPrivateKey.storeSessionBackupPrivateKey-1"><span class="tsd-kind-call-signature">store<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">key</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#storeSessionBackupPrivateKey.storeSessionBackupPrivateKey-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="storeSessionBackupPrivateKey.storeSessionBackupPrivateKey-1"><span class="tsd-kind-call-signature">store<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">key</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#storeSessionBackupPrivateKey.storeSessionBackupPrivateKey-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Store the backup decryption key.</p>
 <p>This should be called if the client has received the key from another device via secret sharing (gossiping).
@@ -1103,18 +1143,18 @@ It is the responsability of the caller to check that the decryption key is valid
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">key</span>: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" class="tsd-signature-type external" target="_blank">Uint8Array</a></h5>
+<h5><span class="tsd-kind-parameter">key</span>: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" class="tsd-signature-type external" target="_blank">Uint8Array</a></h5>
 <div class="tsd-comment tsd-typography"><p>the backup decryption key</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography">
 <h4>Deprecated</h4><p>prefer the variant with a <code>version</code> parameter.</p>
 </div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#storeSessionBackupPrivateKey">storeSessionBackupPrivateKey</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L388">src/crypto-api.ts:388</a></li></ul></aside></li>
-<li class="tsd-signature tsd-anchor-link" id="storeSessionBackupPrivateKey.storeSessionBackupPrivateKey-2"><span class="tsd-kind-call-signature">store<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">key</span>, <span class="tsd-kind-parameter">version</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#storeSessionBackupPrivateKey.storeSessionBackupPrivateKey-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L410">src/crypto-api.ts:410</a></li></ul></aside></li>
+<li class="tsd-signature tsd-anchor-link" id="storeSessionBackupPrivateKey.storeSessionBackupPrivateKey-2"><span class="tsd-kind-call-signature">store<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">key</span>, <span class="tsd-kind-parameter">version</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><a href="#storeSessionBackupPrivateKey.storeSessionBackupPrivateKey-2" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Store the backup decryption key.</p>
 <p>This should be called if the client has received the key from another device via secret sharing (gossiping).
@@ -1124,7 +1164,7 @@ It is the responsability of the caller to check that the decryption key is valid
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5><span class="tsd-kind-parameter">key</span>: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" class="tsd-signature-type external" target="_blank">Uint8Array</a></h5>
+<h5><span class="tsd-kind-parameter">key</span>: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" class="tsd-signature-type external" target="_blank">Uint8Array</a></h5>
 <div class="tsd-comment tsd-typography"><p>the backup decryption key</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li>
@@ -1133,15 +1173,15 @@ It is the responsability of the caller to check that the decryption key is valid
 <div class="tsd-comment tsd-typography"><p>the backup version corresponding to this decryption key</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#storeSessionBackupPrivateKey">storeSessionBackupPrivateKey</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L399">src/crypto-api.ts:399</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L421">src/crypto-api.ts:421</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited"><a id="userHasCrossSigningKeys" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>user<wbr/>Has<wbr/>Cross<wbr/>Signing<wbr/>Keys</span><a href="#userHasCrossSigningKeys" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="userHasCrossSigningKeys.userHasCrossSigningKeys-1"><span class="tsd-kind-call-signature">user<wbr/>Has<wbr/>Cross<wbr/>Signing<wbr/>Keys</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span><span class="tsd-signature-symbol">?</span>, <span class="tsd-kind-parameter">downloadUncached</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#userHasCrossSigningKeys.userHasCrossSigningKeys-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="userHasCrossSigningKeys.userHasCrossSigningKeys-1"><span class="tsd-kind-call-signature">user<wbr/>Has<wbr/>Cross<wbr/>Signing<wbr/>Keys</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">userId</span><span class="tsd-signature-symbol">?</span>, <span class="tsd-kind-parameter">downloadUncached</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><a href="#userHasCrossSigningKeys.userHasCrossSigningKeys-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Check if the given user has published cross-signing keys.</p>
 <ul>
@@ -1165,12 +1205,12 @@ a <code>/keys/query</code> request is made to the server to retrieve the cross s
    currently tracking. Defaults to false, in which case <code>false</code> will be returned for such users.</p>
 </div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><p>true if the cross signing keys are available.</p>
+<h4 class="tsd-returns-title">Returns <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise" class="tsd-signature-type external" target="_blank">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4><p>true if the cross signing keys are available.</p>
 
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <p>Inherited from <a href="Crypto.CryptoApi.html">CryptoApi</a>.<a href="Crypto.CryptoApi.html#userHasCrossSigningKeys">userHasCrossSigningKeys</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/c49a527/src/crypto-api.ts#L103">src/crypto-api.ts:103</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/matrix-org/matrix-js-sdk/blob/41878c7/src/crypto-api.ts#L110">src/crypto-api.ts:110</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -1197,6 +1237,7 @@ a <code>/keys/query</code> request is made to the server to retrieve the cross s
 <li><a href="#checkOwnCrossSigningTrust" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>check<wbr/>Own<wbr/>Cross<wbr/>Signing<wbr/>Trust</span></a></li>
 <li><a href="#checkUserTrust" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>check<wbr/>User<wbr/>Trust</span></a></li>
 <li><a href="#createRecoveryKeyFromPassphrase" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>create<wbr/>Recovery<wbr/>Key<wbr/>From<wbr/>Passphrase</span></a></li>
+<li><a href="#crossSignDevice" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>cross<wbr/>Sign<wbr/>Device</span></a></li>
 <li><a href="#decryptEvent" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>decrypt<wbr/>Event</span></a></li>
 <li><a href="#deleteKeyBackupVersion" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>delete<wbr/>Key<wbr/>Backup<wbr/>Version</span></a></li>
 <li><a href="#encryptEvent" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>encrypt<wbr/>Event</span></a></li>
@@ -1210,6 +1251,7 @@ a <code>/keys/query</code> request is made to the server to retrieve the cross s
 <li><a href="#getDeviceVerificationStatus" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Device<wbr/>Verification<wbr/>Status</span></a></li>
 <li><a href="#getEncryptionInfoForEvent" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Encryption<wbr/>Info<wbr/>For<wbr/>Event</span></a></li>
 <li><a href="#getEventEncryptionInfo" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Event<wbr/>Encryption<wbr/>Info</span></a></li>
+<li><a href="#getOwnDeviceKeys" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Own<wbr/>Device<wbr/>Keys</span></a></li>
 <li><a href="#getSessionBackupPrivateKey" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Session<wbr/>Backup<wbr/>Private<wbr/>Key</span></a></li>
 <li><a href="#getStoredCrossSigningForUser" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Stored<wbr/>Cross<wbr/>Signing<wbr/>For<wbr/>User</span></a></li>
 <li><a href="#getTrustCrossSignedDevices" class="tsd-is-inherited"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Trust<wbr/>Cross<wbr/>Signed<wbr/>Devices</span></a></li>
