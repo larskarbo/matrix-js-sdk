@@ -50,6 +50,8 @@ import {
 import * as testData from "../../test-utils/test-data";
 import { defer } from "../../../src/utils";
 import { logger } from "../../../src/logger";
+import { OutgoingRequestsManager } from "../../../src/rust-crypto/OutgoingRequestsManager";
+import { Curve25519AuthData } from "../../../src/crypto-api/keybackup";
 
 const TEST_USER = "@alice:example.com";
 const TEST_DEVICE_ID = "TEST_DEVICE";
@@ -347,6 +349,8 @@ describe("RustCrypto", () => {
                 makeOutgoingRequest: jest.fn(),
             } as unknown as Mocked<OutgoingRequestProcessor>;
 
+            const outgoingRequestsManager = new OutgoingRequestsManager(logger, olmMachine, outgoingRequestProcessor);
+
             rustCrypto = new RustCrypto(
                 logger,
                 olmMachine,
@@ -357,6 +361,7 @@ describe("RustCrypto", () => {
                 {} as CryptoCallbacks,
             );
             rustCrypto["outgoingRequestProcessor"] = outgoingRequestProcessor;
+            rustCrypto["outgoingRequestsManager"] = outgoingRequestsManager;
         });
 
         it("should poll for outgoing messages and send them", async () => {
@@ -394,50 +399,6 @@ describe("RustCrypto", () => {
             firstOutgoingRequestsDefer.resolve([]);
             await awaitCallToMakeOutgoingRequest();
             expect(olmMachine.outgoingRequests).toHaveBeenCalledTimes(2);
-        });
-
-        it("stops looping when stop() is called", async () => {
-            for (let i = 0; i < 5; i++) {
-                outgoingRequestQueue.push([new KeysQueryRequest("1234", "{}")]);
-            }
-
-            let makeRequestPromise = awaitCallToMakeOutgoingRequest();
-
-            rustCrypto.onSyncCompleted({});
-
-            expect(rustCrypto["outgoingRequestLoopRunning"]).toBeTruthy();
-
-            // go a couple of times round the loop
-            let resolveMakeRequest = await makeRequestPromise;
-            makeRequestPromise = awaitCallToMakeOutgoingRequest();
-            resolveMakeRequest();
-
-            resolveMakeRequest = await makeRequestPromise;
-            makeRequestPromise = awaitCallToMakeOutgoingRequest();
-            resolveMakeRequest();
-
-            // a second sync while this is going on shouldn't make any difference
-            rustCrypto.onSyncCompleted({});
-
-            resolveMakeRequest = await makeRequestPromise;
-            outgoingRequestProcessor.makeOutgoingRequest.mockReset();
-            resolveMakeRequest();
-
-            // now stop...
-            rustCrypto.stop();
-
-            // which should (eventually) cause the loop to stop with no further calls to outgoingRequests
-            olmMachine.outgoingRequests.mockReset();
-
-            await new Promise((resolve) => {
-                setTimeout(resolve, 100);
-            });
-            expect(rustCrypto["outgoingRequestLoopRunning"]).toBeFalsy();
-            expect(outgoingRequestProcessor.makeOutgoingRequest).not.toHaveBeenCalled();
-            expect(olmMachine.outgoingRequests).not.toHaveBeenCalled();
-
-            // we sent three, so there should be 2 left
-            expect(outgoingRequestQueue.length).toEqual(2);
         });
     });
 
@@ -685,6 +646,7 @@ describe("RustCrypto", () => {
 
         it("should call getDevice", async () => {
             olmMachine.getDevice.mockResolvedValue({
+                free: jest.fn(),
                 isCrossSigningTrusted: jest.fn().mockReturnValue(false),
                 isLocallyTrusted: jest.fn().mockReturnValue(false),
                 isCrossSignedByOwner: jest.fn().mockReturnValue(false),
@@ -911,7 +873,7 @@ describe("RustCrypto", () => {
         });
 
         it("returns a verified UserVerificationStatus when the UserIdentity is verified", async () => {
-            olmMachine.getIdentity.mockResolvedValue({ isVerified: jest.fn().mockReturnValue(true) });
+            olmMachine.getIdentity.mockResolvedValue({ free: jest.fn(), isVerified: jest.fn().mockReturnValue(true) });
 
             const userVerificationStatus = await rustCrypto.getUserVerificationStatus(testData.TEST_USER_ID);
             expect(userVerificationStatus.isVerified()).toBeTruthy();
@@ -969,6 +931,48 @@ describe("RustCrypto", () => {
             );
             await rustCrypto.onUserIdentityUpdated(new RustSdkCryptoJs.UserId(testData.TEST_USER_ID));
             expect(await keyBackupStatusPromise).toBe(true);
+        });
+
+        it("does not back up keys that came from backup", async () => {
+            const rustCrypto = await makeTestRustCrypto();
+            const olmMachine: OlmMachine = rustCrypto["olmMachine"];
+
+            await olmMachine.enableBackupV1(
+                (testData.SIGNED_BACKUP_DATA.auth_data as Curve25519AuthData).public_key,
+                testData.SIGNED_BACKUP_DATA.version!,
+            );
+
+            // we import two keys: one "from backup", and one "from export"
+            const [backedUpRoomKey, exportedRoomKey] = testData.MEGOLM_SESSION_DATA_ARRAY;
+            await rustCrypto.importBackedUpRoomKeys([backedUpRoomKey]);
+            await rustCrypto.importRoomKeys([exportedRoomKey]);
+
+            // we ask for the keys that should be backed up
+            const roomKeysRequest = await olmMachine.backupRoomKeys();
+            expect(roomKeysRequest).toBeTruthy();
+            const roomKeys = JSON.parse(roomKeysRequest!.body);
+
+            // we expect that the key "from export" is present
+            expect(roomKeys).toMatchObject({
+                rooms: {
+                    [exportedRoomKey.room_id]: {
+                        sessions: {
+                            [exportedRoomKey.session_id]: {},
+                        },
+                    },
+                },
+            });
+
+            // we expect that the key "from backup" is not present
+            expect(roomKeys).not.toMatchObject({
+                rooms: {
+                    [backedUpRoomKey.room_id]: {
+                        sessions: {
+                            [backedUpRoomKey.session_id]: {},
+                        },
+                    },
+                },
+            });
         });
     });
 });

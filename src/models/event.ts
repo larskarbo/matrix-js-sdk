@@ -177,11 +177,23 @@ interface IKeyRequestRecipient {
 }
 
 export interface IDecryptOptions {
-    // Emits "event.decrypted" if set to true
+    /** Whether to emit {@link MatrixEventEvent.Decrypted} events on successful decryption. Defaults to true.
+     */
     emit?: boolean;
-    // True if this is a retry (enables more logging)
+
+    /**
+     * True if this is a retry, after receiving an update to the session key. (Enables more logging.)
+     *
+     * This is only intended for use within the js-sdk.
+     *
+     * @internal
+     */
     isRetry?: boolean;
-    // whether the message should be re-decrypted if it was previously successfully decrypted with an untrusted key
+
+    /**
+     * Whether the message should be re-decrypted if it was previously successfully decrypted with an untrusted key.
+     * Defaults to `false`.
+     */
     forceRedecryptIfUntrusted?: boolean;
 }
 
@@ -392,7 +404,13 @@ export class MatrixEvent extends TypedEventEmitter<MatrixEventEmittedEvents, Mat
         });
 
         this.txnId = event.txn_id;
-        this.localTimestamp = Date.now() - (this.getAge() ?? 0);
+        // The localTimestamp is calculated using the age.
+        // Some events lack an `age` property, either because they are EDUs such as typing events,
+        // or due to server-side bugs such as https://github.com/matrix-org/synapse/issues/8429.
+        // The fallback in these cases will be to use the origin_server_ts.
+        // For EDUs, the origin_server_ts also is not defined so we use Date.now().
+        const age = this.getAge();
+        this.localTimestamp = age !== undefined ? Date.now() - age : this.getTs() ?? Date.now();
         this.reEmitter = new TypedReEmitter(this);
     }
 

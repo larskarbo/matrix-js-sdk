@@ -51,7 +51,7 @@ import { decodeBase64, encodeBase64 } from "./base64";
 import { IExportedDevice as IExportedOlmDevice } from "./crypto/OlmDevice";
 import { IOlmDevice } from "./crypto/algorithms/megolm";
 import { TypedReEmitter } from "./ReEmitter";
-import { IRoomEncryption, RoomList } from "./crypto/RoomList";
+import { IRoomEncryption } from "./crypto/RoomList";
 import { logger, Logger } from "./logger";
 import { SERVICE_TYPES } from "./service-types";
 import {
@@ -536,20 +536,10 @@ export interface IThreadsCapability extends ICapability {}
 
 export interface IGetLoginTokenCapability extends ICapability {}
 
-/**
- * @deprecated use {@link IGetLoginTokenCapability} instead
- */
-export type IMSC3882GetLoginTokenCapability = IGetLoginTokenCapability;
-
 export const GET_LOGIN_TOKEN_CAPABILITY = new NamespacedValue(
     "m.get_login_token",
     "org.matrix.msc3882.get_login_token",
 );
-
-/**
- * @deprecated use {@link GET_LOGIN_TOKEN_CAPABILITY} instead
- */
-export const UNSTABLE_MSC3882_CAPABILITY = GET_LOGIN_TOKEN_CAPABILITY;
 
 export const UNSTABLE_MSC2666_SHARED_ROOMS = "uk.half-shot.msc2666";
 export const UNSTABLE_MSC2666_MUTUAL_ROOMS = "uk.half-shot.msc2666.mutual_rooms";
@@ -905,7 +895,7 @@ interface IRoomHierarchy {
 
 export interface TimestampToEventResponse {
     event_id: string;
-    origin_server_ts: string;
+    origin_server_ts: number;
 }
 
 interface IWhoamiResponse {
@@ -961,6 +951,7 @@ type CryptoEvents =
     | CryptoEvent.KeyBackupStatus
     | CryptoEvent.KeyBackupFailed
     | CryptoEvent.KeyBackupSessionsRemaining
+    | CryptoEvent.KeyBackupDecryptionKeyCached
     | CryptoEvent.RoomKeyRequest
     | CryptoEvent.RoomKeyRequestCancellation
     | CryptoEvent.VerificationRequest
@@ -1227,7 +1218,7 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
     public reEmitter = new TypedReEmitter<EmittedEvents, ClientEventHandlerMap>(this);
     public olmVersion: [number, number, number] | null = null; // populated after initCrypto
     public usingExternalCrypto = false;
-    public store: Store;
+    private _store!: Store;
     public deviceId: string | null;
     public credentials: { userId: string | null };
 
@@ -1281,7 +1272,6 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
     protected cryptoStore?: CryptoStore;
     protected verificationMethods?: VerificationMethod[];
     protected fallbackICEServerAllowed = false;
-    protected roomList: RoomList;
     protected syncApi?: SlidingSyncSdk | SyncApi;
     public roomNameGenerator?: ICreateClientOpts["roomNameGenerator"];
     public pushRules?: IPushRules;
@@ -1342,7 +1332,6 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
 
         this.usingExternalCrypto = opts.usingExternalCrypto ?? false;
         this.store = opts.store || new StubStore();
-        this.store.setUserCreator((userId) => User.createUser(userId, this));
         this.deviceId = opts.deviceId || null;
         this.sessionId = randomString(10);
 
@@ -1438,10 +1427,6 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
 
         this.livekitServiceURL = opts.livekitServiceURL;
 
-        // List of which rooms have encryption enabled: separate from crypto because
-        // we still want to know which rooms are encrypted even if crypto is disabled:
-        // we don't want to start sending unencrypted events to them.
-        this.roomList = new RoomList(this.cryptoStore);
         this.roomNameGenerator = opts.roomNameGenerator;
 
         this.toDeviceMessageQueue = new ToDeviceMessageQueue(this);
@@ -1505,6 +1490,18 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
 
         this.ignoredInvites = new IgnoredInvites(this);
         this._secretStorage = new ServerSideSecretStorageImpl(this, opts.cryptoCallbacks ?? {});
+
+        // having lots of event listeners is not unusual. 0 means "unlimited".
+        this.setMaxListeners(0);
+    }
+
+    public set store(newStore: Store) {
+        this._store = newStore;
+        this._store.setUserCreator((userId) => User.createUser(userId, this));
+    }
+
+    public get store(): Store {
+        return this._store;
     }
 
     /**
@@ -2231,10 +2228,6 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
         this.logger.debug("Crypto: Starting up crypto store...");
         await this.cryptoStore.startup();
 
-        // initialise the list of encrypted rooms (whether or not crypto is enabled)
-        this.logger.debug("Crypto: initialising roomlist...");
-        await this.roomList.init();
-
         const userId = this.getUserId();
         if (userId === null) {
             throw new Error(
@@ -2249,15 +2242,7 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
             );
         }
 
-        const crypto = new Crypto(
-            this,
-            userId,
-            this.deviceId,
-            this.store,
-            this.cryptoStore,
-            this.roomList,
-            this.verificationMethods!,
-        );
+        const crypto = new Crypto(this, userId, this.deviceId, this.store, this.cryptoStore, this.verificationMethods!);
 
         this.reEmitter.reEmit(crypto, [
             CryptoEvent.KeyBackupFailed,
@@ -2358,6 +2343,7 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
             CryptoEvent.KeyBackupStatus,
             CryptoEvent.KeyBackupSessionsRemaining,
             CryptoEvent.KeyBackupFailed,
+            CryptoEvent.KeyBackupDecryptionKeyCached,
         ]);
     }
 
@@ -2392,6 +2378,8 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
      *
      * @returns base64-encoded ed25519 key. Null if crypto is
      *    disabled.
+     *
+     * @deprecated Prefer {@link CryptoApi.getOwnDeviceKeys}
      */
     public getDeviceEd25519Key(): string | null {
         return this.crypto?.getDeviceEd25519Key() ?? null;
@@ -2402,6 +2390,8 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
      *
      * @returns base64-encoded curve25519 key. Null if crypto is
      *    disabled.
+     *
+     * @deprecated Use {@link CryptoApi.getOwnDeviceKeys}
      */
     public getDeviceCurve25519Key(): string | null {
         return this.crypto?.getDeviceCurve25519Key() ?? null;
@@ -3276,7 +3266,7 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
         // we don't have an m.room.encrypted event, but that might be because
         // the server is hiding it from us. Check the store to see if it was
         // previously encrypted.
-        return this.roomList.isRoomEncrypted(roomId);
+        return this.crypto?.isRoomEncrypted(roomId) ?? false;
     }
 
     /**
@@ -3639,6 +3629,9 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
     /**
      * Marks all group sessions as needing to be backed up and schedules them to
      * upload in the background as soon as possible.
+     *
+     * (This is done automatically as part of {@link CryptoApi.resetKeyBackup},
+     * so there is probably no need to call this manually.)
      */
     public async scheduleAllGroupSessionsForBackup(): Promise<void> {
         if (!this.crypto) {
@@ -3651,6 +3644,10 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
     /**
      * Marks all group sessions as needing to be backed up without scheduling
      * them to upload in the background.
+     *
+     * (This is done automatically as part of {@link CryptoApi.resetKeyBackup},
+     * so there is probably no need to call this manually.)
+     *
      * @returns Promise which resolves to the number of sessions requiring a backup.
      */
     public flagAllGroupSessionsForBackup(): Promise<number> {
@@ -3970,10 +3967,9 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
             backupDecryptor.free();
         }
 
-        await this.cryptoBackend.importRoomKeys(keys, {
+        await this.cryptoBackend.importBackedUpRoomKeys(keys, {
             progressCallback,
             untrusted,
-            source: "backup",
         });
 
         /// in case entering the passphrase would add a new signature?
@@ -4006,7 +4002,7 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
             throw new Error("End-to-end encryption disabled");
         }
 
-        const roomEncryption = this.roomList.getRoomEncryption(roomId);
+        const roomEncryption = this.crypto?.getRoomEncryption(roomId);
         if (!roomEncryption) {
             // unknown room, or unencrypted room
             this.logger.error("Unknown room.  Not sharing decryption keys");
@@ -5167,7 +5163,7 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
 
         const room = this.getRoom(event.getRoomId());
         if (room && this.credentials.userId) {
-            room.addLocalEchoReceipt(this.credentials.userId, event, receiptType);
+            room.addLocalEchoReceipt(this.credentials.userId, event, receiptType, unthreaded);
         }
         return promise;
     }
@@ -8045,50 +8041,23 @@ export class MatrixClient extends TypedEventEmitter<EmittedEvents, ClientEventHa
 
     /**
      * Make a request for an `m.login.token` to be issued as per
-     * [MSC3882](https://github.com/matrix-org/matrix-spec-proposals/pull/3882).
-     * The server may require User-Interactive auth.
+     * https://spec.matrix.org/v1.7/client-server-api/#post_matrixclientv1loginget_token
      *
-     * Compatibility with unstable implementations of MSC3882 is deprecated and will be removed in a future release.
+     * The server may require User-Interactive auth.
      *
      * @param auth - Optional. Auth data to supply for User-Interactive auth.
      * @returns Promise which resolves: On success, the token response
      * or UIA auth data.
      */
     public async requestLoginToken(auth?: AuthDict): Promise<UIAResponse<LoginTokenPostResponse>> {
-        // use capabilities to determine which revision of the MSC is being used
-        const capabilities = await this.getCapabilities();
-
-        let endpoint: string;
-        if (capabilities[GET_LOGIN_TOKEN_CAPABILITY.name]) {
-            // use the stable endpoint
-            endpoint = `${ClientPrefix.V1}/login/get_token`;
-        } else if (capabilities[GET_LOGIN_TOKEN_CAPABILITY.altName!]) {
-            // newer unstable r1 endpoint
-            endpoint = `${ClientPrefix.Unstable}/org.matrix.msc3882/login/get_token`;
-        } else {
-            // old unstable r0 endpoint
-            endpoint = `${ClientPrefix.Unstable}/org.matrix.msc3882/login/token`;
-        }
-
         const body: UIARequest<{}> = { auth };
-        const res = await this.http.authedRequest<UIAResponse<LoginTokenPostResponse>>(
+        return this.http.authedRequest<UIAResponse<LoginTokenPostResponse>>(
             Method.Post,
-            endpoint,
+            "/login/get_token",
             undefined, // no query params
             body,
-            { prefix: "" },
+            { prefix: ClientPrefix.V1 },
         );
-
-        // the representation of expires_in changed from unstable revision 0 to unstable revision 1 so we cross populate
-        if ("login_token" in res) {
-            if (typeof res.expires_in_ms === "number") {
-                res.expires_in = Math.floor(res.expires_in_ms / 1000);
-            } else if (typeof res.expires_in === "number") {
-                res.expires_in_ms = res.expires_in * 1000;
-            }
-        }
-
-        return res;
     }
 
     /**
@@ -9858,6 +9827,19 @@ export function fixNotificationCountOnDecryption(cli: MatrixClient, event: Matri
     const room = cli.getRoom(event.getRoomId());
     if (!room || !ourUserId || !eventId) return;
 
+    // Due to threads, we can get relation events (eg. edits & reactions) that never get
+    // added to a timeline and so cannot be found in their own room (their edit / reaction
+    // still applies to the event it needs to, so it doesn't matter too much). However, if
+    // we try to process notification about this event, we'll get very confused because we
+    // won't be able to find the event in the room, so will assume it must be unread, even
+    // if it's actually read. We therefore skip anything that isn't in the room. This isn't
+    // *great*, so if we can fix the homeless events (eg. with MSC4023) then we should probably
+    // remove this workaround.
+    if (!room.findEventById(eventId)) {
+        logger.info(`Decrypted event ${event.getId()} is not in room ${room.roomId}: ignoring`);
+        return;
+    }
+
     const isThreadEvent = !!event.threadRootId && !event.isThreadRoot;
 
     let hasReadEvent;
@@ -9942,7 +9924,7 @@ export function threadIdForReceipt(event: MatrixEvent): string {
  * @returns true if this event is considered to be in the main timeline as far
  *               as receipts are concerned.
  */
-function inMainTimelineForReceipt(event: MatrixEvent): boolean {
+export function inMainTimelineForReceipt(event: MatrixEvent): boolean {
     if (!event.threadRootId) {
         // Not in a thread: then it is in the main timeline
         return true;

@@ -96,6 +96,7 @@ import {
     getTestOlmAccountKeys,
 } from "./olm-utils";
 import { ToDevicePayload } from "../../../src/models/ToDeviceMessage";
+import { AccountDataAccumulator } from "../../test-utils/AccountDataAccumulator";
 
 afterEach(() => {
     // reset fake-indexeddb after each test, to make sure we don't leak connections
@@ -397,6 +398,19 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
         expect(aliceClient.getCrypto()).toHaveProperty("globalBlacklistUnverifiedDevices");
     });
 
+    it("CryptoAPI.getOwnedDeviceKeys returns the correct values", async () => {
+        const homeserverUrl = aliceClient.getHomeserverUrl();
+
+        keyResponder = new E2EKeyResponder(homeserverUrl);
+        await startClientAndAwaitFirstSync();
+        keyResponder.addKeyReceiver("@alice:localhost", keyReceiver);
+
+        const deviceKeys = await aliceClient.getCrypto()!.getOwnDeviceKeys();
+
+        expect(deviceKeys.curve25519).toEqual(keyReceiver.getDeviceKey());
+        expect(deviceKeys.ed25519).toEqual(keyReceiver.getSigningKey());
+    });
+
     it("Alice receives a megolm message", async () => {
         expectAliceKeyQuery({ device_keys: { "@alice:localhost": {} }, failures: {} });
         await startClientAndAwaitFirstSync();
@@ -692,7 +706,13 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
     });
 
     it("prepareToEncrypt", async () => {
-        expectAliceKeyQuery({ device_keys: { "@alice:localhost": {} }, failures: {} });
+        const homeserverUrl = aliceClient.getHomeserverUrl();
+        keyResponder = new E2EKeyResponder(homeserverUrl);
+        keyResponder.addKeyReceiver("@alice:localhost", keyReceiver);
+
+        const testDeviceKeys = getTestOlmAccountKeys(testOlmAccount, "@bob:xyz", "DEVICE_ID");
+        keyResponder.addDeviceKeys(testDeviceKeys);
+
         await startClientAndAwaitFirstSync();
         aliceClient.setGlobalErrorOnUnknownDevices(false);
 
@@ -700,10 +720,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
         syncResponder.sendOrQueueSyncResponse(getSyncResponse(["@bob:xyz"]));
         await syncPromise(aliceClient);
 
-        // we expect alice first to query bob's keys...
-        expectAliceKeyQuery(getTestKeysQueryResponse("@bob:xyz"));
-
-        // ... and then claim one of his OTKs
+        // Alice should claim one of Bob's OTKs
         expectAliceKeyClaim(getTestKeysClaimResponse("@bob:xyz"));
 
         // fire off the prepare request
@@ -720,18 +737,20 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
 
     it("Alice sends a megolm message with GlobalErrorOnUnknownDevices=false", async () => {
         aliceClient.setGlobalErrorOnUnknownDevices(false);
-        expectAliceKeyQuery({ device_keys: { "@alice:localhost": {} }, failures: {} });
+        const homeserverUrl = aliceClient.getHomeserverUrl();
+        keyResponder = new E2EKeyResponder(homeserverUrl);
+        keyResponder.addKeyReceiver("@alice:localhost", keyReceiver);
+
+        const testDeviceKeys = getTestOlmAccountKeys(testOlmAccount, "@bob:xyz", "DEVICE_ID");
+        keyResponder.addDeviceKeys(testDeviceKeys);
+
         await startClientAndAwaitFirstSync();
 
         // Alice shares a room with Bob
         syncResponder.sendOrQueueSyncResponse(getSyncResponse(["@bob:xyz"]));
         await syncPromise(aliceClient);
 
-        // Once we send the message, Alice will check Bob's device list (twice, because reasons) ...
-        expectAliceKeyQuery(getTestKeysQueryResponse("@bob:xyz"));
-        expectAliceKeyQuery(getTestKeysQueryResponse("@bob:xyz"));
-
-        // ... and claim one of his OTKs ...
+        // ... and claim one of Bob's OTKs ...
         expectAliceKeyClaim(getTestKeysClaimResponse("@bob:xyz"));
 
         // ... and send an m.room_key message
@@ -746,18 +765,20 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
 
     it("We should start a new megolm session after forceDiscardSession", async () => {
         aliceClient.setGlobalErrorOnUnknownDevices(false);
-        expectAliceKeyQuery({ device_keys: { "@alice:localhost": {} }, failures: {} });
+        const homeserverUrl = aliceClient.getHomeserverUrl();
+        keyResponder = new E2EKeyResponder(homeserverUrl);
+        keyResponder.addKeyReceiver("@alice:localhost", keyReceiver);
+
+        const testDeviceKeys = getTestOlmAccountKeys(testOlmAccount, "@bob:xyz", "DEVICE_ID");
+        keyResponder.addDeviceKeys(testDeviceKeys);
+
         await startClientAndAwaitFirstSync();
 
         // Alice shares a room with Bob
         syncResponder.sendOrQueueSyncResponse(getSyncResponse(["@bob:xyz"]));
         await syncPromise(aliceClient);
 
-        // Once we send the message, Alice will check Bob's device list (twice, because reasons) ...
-        expectAliceKeyQuery(getTestKeysQueryResponse("@bob:xyz"));
-        expectAliceKeyQuery(getTestKeysQueryResponse("@bob:xyz"));
-
-        // ... and claim one of his OTKs ...
+        // ... and claim one of Bob's OTKs ...
         expectAliceKeyClaim(getTestKeysClaimResponse("@bob:xyz"));
 
         // ... and send an m.room_key message
@@ -2052,12 +2073,16 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
             });
         }
 
-        oldBackendOnly("Sending an event initiates a member list sync", async () => {
+        it("Sending an event initiates a member list sync", async () => {
+            const homeserverUrl = aliceClient.getHomeserverUrl();
+            keyResponder = new E2EKeyResponder(homeserverUrl);
+            keyResponder.addKeyReceiver("@alice:localhost", keyReceiver);
+
+            const testDeviceKeys = getTestOlmAccountKeys(testOlmAccount, "@bob:xyz", "DEVICE_ID");
+            keyResponder.addDeviceKeys(testDeviceKeys);
+
             // we expect a call to the /members list...
             const memberListPromise = expectMembershipRequest(ROOM_ID, ["@bob:xyz"]);
-
-            // then a request for bob's devices...
-            expectAliceKeyQuery(getTestKeysQueryResponse("@bob:xyz"));
 
             // then a to-device with the room_key
             const inboundGroupSessionPromise = expectSendRoomKey("@bob:xyz", testOlmAccount, p2pSession);
@@ -2071,12 +2096,16 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
             await Promise.all([sendPromise, megolmMessagePromise, memberListPromise]);
         });
 
-        oldBackendOnly("loading the membership list inhibits a later load", async () => {
+        it("loading the membership list inhibits a later load", async () => {
+            const homeserverUrl = aliceClient.getHomeserverUrl();
+            keyResponder = new E2EKeyResponder(homeserverUrl);
+            keyResponder.addKeyReceiver("@alice:localhost", keyReceiver);
+
+            const testDeviceKeys = getTestOlmAccountKeys(testOlmAccount, "@bob:xyz", "DEVICE_ID");
+            keyResponder.addDeviceKeys(testDeviceKeys);
+
             const room = aliceClient.getRoom(ROOM_ID)!;
             await Promise.all([room.loadMembersIfNeeded(), expectMembershipRequest(ROOM_ID, ["@bob:xyz"])]);
-
-            // expect a request for bob's devices...
-            expectAliceKeyQuery(getTestKeysQueryResponse("@bob:xyz"));
 
             // then a to-device with the room_key
             const inboundGroupSessionPromise = expectSendRoomKey("@bob:xyz", testOlmAccount, p2pSession);
@@ -2410,12 +2439,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
     });
 
     describe("Secret Storage and Key Backup", () => {
-        /**
-         * The account data events to be returned by the sync.
-         * Will be updated when fecthMock intercepts calls to PUT `/_matrix/client/v3/user/:userId/account_data/`.
-         * Will be used by `sendSyncResponseWithUpdatedAccountData`
-         */
-        let accountDataEvents: Map<String, any>;
+        let accountDataAccumulator: AccountDataAccumulator;
 
         /**
          * Create a fake secret storage key
@@ -2428,76 +2452,19 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
 
         beforeEach(async () => {
             createSecretStorageKey.mockClear();
-            accountDataEvents = new Map();
+            accountDataAccumulator = new AccountDataAccumulator();
             expectAliceKeyQuery({ device_keys: { "@alice:localhost": {} }, failures: {} });
             await startClientAndAwaitFirstSync();
         });
-
-        function mockGetAccountData() {
-            fetchMock.get(
-                `path:/_matrix/client/v3/user/:userId/account_data/:type`,
-                (url) => {
-                    const type = url.split("/").pop();
-                    const existing = accountDataEvents.get(type!);
-                    if (existing) {
-                        // return it
-                        return {
-                            status: 200,
-                            body: existing.content,
-                        };
-                    } else {
-                        // 404
-                        return {
-                            status: 404,
-                            body: { errcode: "M_NOT_FOUND", error: "Account data not found." },
-                        };
-                    }
-                },
-                { overwriteRoutes: true },
-            );
-        }
 
         /**
          * Create a mock to respond to the PUT request `/_matrix/client/v3/user/:userId/account_data/m.cross_signing.${key}`
          * Resolved when the cross signing key is uploaded
          * https://spec.matrix.org/v1.6/client-server-api/#put_matrixclientv3useruseridaccount_datatype
          */
-        function awaitCrossSigningKeyUpload(key: string): Promise<Record<string, {}>> {
-            return new Promise((resolve) => {
-                // Called when the cross signing key is uploaded
-                fetchMock.put(
-                    `express:/_matrix/client/v3/user/:userId/account_data/m.cross_signing.${key}`,
-                    (url: string, options: RequestInit) => {
-                        const content = JSON.parse(options.body as string);
-                        const type = url.split("/").pop();
-                        // update account data for sync response
-                        accountDataEvents.set(type!, content);
-                        resolve(content.encrypted);
-                        return {};
-                    },
-                );
-            });
-        }
-
-        /**
-         * Send in the sync response the current account data events, as stored by `accountDataEvents`.
-         */
-        function sendSyncResponseWithUpdatedAccountData() {
-            try {
-                syncResponder.sendOrQueueSyncResponse({
-                    next_batch: 1,
-                    account_data: {
-                        events: Array.from(accountDataEvents, ([type, content]) => ({
-                            type: type,
-                            content: content,
-                        })),
-                    },
-                });
-            } catch (err) {
-                // Might fail with "Cannot queue more than one /sync response" if called too often.
-                // It's ok if it fails here, the sync response is cumulative and will contain
-                // the latest account data.
-            }
+        async function awaitCrossSigningKeyUpload(key: string): Promise<Record<string, {}>> {
+            const content = await accountDataAccumulator.interceptSetAccountData(`m.cross_signing.${key}`);
+            return content.encrypted;
         }
 
         /**
@@ -2505,28 +2472,18 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
          * Resolved when a key is uploaded (ie in `body.content.key`)
          * https://spec.matrix.org/v1.6/client-server-api/#put_matrixclientv3useruseridaccount_datatype
          */
-        function awaitSecretStorageKeyStoredInAccountData(): Promise<string> {
-            return new Promise((resolve) => {
-                // This url is called multiple times during the secret storage bootstrap process
-                // When we received the newly generated key, we return it
-                fetchMock.put(
-                    "express:/_matrix/client/v3/user/:userId/account_data/:type(m.secret_storage.*)",
-                    (url: string, options: RequestInit) => {
-                        const type = url.split("/").pop();
-                        const content = JSON.parse(options.body as string);
-
-                        // update account data for sync response
-                        accountDataEvents.set(type!, content);
-
-                        if (content.key) {
-                            resolve(content.key);
-                        }
-                        sendSyncResponseWithUpdatedAccountData();
-                        return {};
-                    },
-                    { overwriteRoutes: true },
-                );
-            });
+        async function awaitSecretStorageKeyStoredInAccountData(): Promise<string> {
+            // eslint-disable-next-line no-constant-condition
+            while (true) {
+                const content = await accountDataAccumulator.interceptSetAccountData(":type(m.secret_storage.*)", {
+                    repeat: 1,
+                    overwriteRoutes: true,
+                });
+                accountDataAccumulator.sendSyncResponseWithUpdatedAccountData(syncResponder);
+                if (content.key) {
+                    return content.key;
+                }
+            }
         }
 
         function awaitMegolmBackupKeyUpload(): Promise<Record<string, {}>> {
@@ -2537,7 +2494,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
                     (url: string, options: RequestInit) => {
                         const content = JSON.parse(options.body as string);
                         // update account data for sync response
-                        accountDataEvents.set("m.megolm_backup.v1", content);
+                        accountDataAccumulator.accountDataEvents.set("m.megolm_backup.v1", content);
                         resolve(content.encrypted);
                         return {};
                     },
@@ -2602,7 +2559,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
             await bootstrapPromise;
 
             // Return the newly created key in the sync response
-            sendSyncResponseWithUpdatedAccountData();
+            accountDataAccumulator.sendSyncResponseWithUpdatedAccountData(syncResponder);
 
             // Finally ensure backup is working
             await aliceClient.getCrypto()!.checkKeyBackupAndEnable();
@@ -2624,7 +2581,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
             );
 
             it("Should create a 4S key", async () => {
-                mockGetAccountData();
+                accountDataAccumulator.interceptGetAccountData();
 
                 const awaitAccountData = awaitAccountDataUpdate("m.secret_storage.default_key");
 
@@ -2636,7 +2593,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
                 const secretStorageKey = await awaitSecretStorageKeyStoredInAccountData();
 
                 // Return the newly created key in the sync response
-                sendSyncResponseWithUpdatedAccountData();
+                accountDataAccumulator.sendSyncResponseWithUpdatedAccountData(syncResponder);
 
                 // Finally, wait for bootstrapSecretStorage to finished
                 await bootstrapPromise;
@@ -2660,7 +2617,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
                 await awaitSecretStorageKeyStoredInAccountData();
 
                 // Return the newly created key in the sync response
-                sendSyncResponseWithUpdatedAccountData();
+                accountDataAccumulator.sendSyncResponseWithUpdatedAccountData(syncResponder);
 
                 // Wait for bootstrapSecretStorage to finished
                 await bootstrapPromise;
@@ -2684,7 +2641,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
                 await awaitSecretStorageKeyStoredInAccountData();
 
                 // Return the newly created key in the sync response
-                sendSyncResponseWithUpdatedAccountData();
+                accountDataAccumulator.sendSyncResponseWithUpdatedAccountData(syncResponder);
 
                 // Wait for bootstrapSecretStorage to finished
                 await bootstrapPromise;
@@ -2698,7 +2655,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
                 await awaitSecretStorageKeyStoredInAccountData();
 
                 // Return the newly created key in the sync response
-                sendSyncResponseWithUpdatedAccountData();
+                accountDataAccumulator.sendSyncResponseWithUpdatedAccountData(syncResponder);
 
                 // Wait for bootstrapSecretStorage to finished
                 await bootstrapPromise;
@@ -2722,7 +2679,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
                 const secretStorageKey = await awaitSecretStorageKeyStoredInAccountData();
 
                 // Return the newly created key in the sync response
-                sendSyncResponseWithUpdatedAccountData();
+                accountDataAccumulator.sendSyncResponseWithUpdatedAccountData(syncResponder);
 
                 // Wait for the cross signing keys to be uploaded
                 const [masterKey, userSigningKey, selfSigningKey] = await Promise.all([
@@ -2875,6 +2832,19 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
 
                 const newBackupUploadPromise = awaitMegolmBackupKeyUpload();
 
+                // Track calls to scheduleAllGroupSessionsForBackup. This is
+                // only relevant on legacy encryption.
+                const scheduleAllGroupSessionsForBackup = jest.fn();
+                if (backend === "libolm") {
+                    aliceClient.crypto!.backupManager.scheduleAllGroupSessionsForBackup =
+                        scheduleAllGroupSessionsForBackup;
+                } else {
+                    // With Rust crypto, we don't need to call this function, so
+                    // we call the dummy value here so we pass our later
+                    // expectation.
+                    scheduleAllGroupSessionsForBackup();
+                }
+
                 await aliceClient.getCrypto()!.resetKeyBackup();
                 await awaitDeleteCalled;
                 await newBackupStatusUpdate;
@@ -2886,6 +2856,7 @@ describe.each(Object.entries(CRYPTO_BACKENDS))("crypto (%s)", (backend: string, 
                 expect(nextVersion).toBeDefined();
                 expect(nextVersion).not.toEqual(currentVersion);
                 expect(nextKey).not.toEqual(currentBackupKey);
+                expect(scheduleAllGroupSessionsForBackup).toHaveBeenCalled();
 
                 // The `deleteKeyBackupVersion` API is deprecated but has been modified to work with both crypto backend
                 // ensure that it works anyhow
